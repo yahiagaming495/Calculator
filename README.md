@@ -25,10 +25,10 @@ First install gcc
 
 **Termux (untested):** ```pkg install clang``` 
 
-Then download the C code from this repository, And run ```gcc -o math1 math1.c -lm```
-After that run ```./math1```
+Then download the C code from this repository, And run ```gcc -o calc1 calc1.c -lm```
+After that run ```./calc1```
 
-**NOTE: For termux or if you want to use CLANG please run: ```clang math1.c -o math1 -lm``` and then ```./math1``` normally** 
+**NOTE: For termux or if you want to use CLANG please run: ```clang calc1.c -o math1 -lm``` and then ```./calc1``` normally** 
 
 **To verify the installation of gcc**
 ------
@@ -45,7 +45,7 @@ You will first be greeted with some NOTES: Read them, Those include
 ```Write 's' for calculating the square root, 'p' for power```
 
 **Usage examples**
-1. Let's say you're studying, You came across a math problem. So you open your terminal and just type ```./math1``` and you can easily calculate the problem
+1. Let's say you're studying, You came across a math problem. So you open your terminal and just type ```./calc1``` and you can easily calculate the problem
 
 2. You are at the store, You aren't sure if you're correct about the calculation at home, But you have compiled the program on Termux (a sand-boxed linux-ish enviroment on your phone) So now you can use the program on your phone (un-tested, if there is any problems open a bug in this repo)
 
