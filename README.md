@@ -23,14 +23,16 @@ First install gcc
 
 **Fedora** ```sudo dnf install gcc```
 
-**Termux (untested)** ```pkg install clang``` then ```pkg install gcc-cctools```
+**Termux (untested)** ```pkg install clang``` 
 
 Then download the C code from this repository, And run ```gcc -o math1 math1.c -lm```
+**NOTE: Please run ```clang math1.c -o math1 -lm```**
 After that run ```./math1```
 
 **To verify the installation of gcc**
 ------
 Run: ```gcc --version``` 
+For termux run: ```clang --version```
 
 **How to use this program?**
 -----
