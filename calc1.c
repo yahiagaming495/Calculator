@@ -10,13 +10,15 @@ double base;
 double exponent;
 int clear;
 int CheckOPCorrect;
+char UpOrDown;
+double RoundUpNum;
+double RoundDownNum;
 
 int main () {
-	printf("NOTE: If you divide any number by zero (0), The program will output 'inf' (Infinity)\n");
 	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
 	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
+	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to exit the program\n");
 	start:
-	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to be exit the program\n");
 	printf("What type of calculation would you like to perform?: \n");
 	scanf(" %c", &op);
 	if (op == 's') { // 's' means that the user wants the square-root, We used single-quotes because it's a single-letter plus, We are storing it in a char (single-letter-variable, which is: op)
@@ -47,16 +49,42 @@ int main () {
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
 			goto start; }
 	printf("The result is: %lf\n", pow(base, exponent));
-	goto start;
+	goto start; }
 
-
-  }	else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
-	printf("Enter the first number:\n");
-	if (scanf("%lf", &result1) != 1) {
+else if (op == 'r') {
+	printf("Do you want to round the number upwards or downwards?: ('u' for upwards, 'd' for downwards)\n");
+	if (scanf(" %c", &UpOrDown) != 1) {
+		printf("Invalid input\n"); 
+		while ((clear = getchar()) != '\n' && clear != EOF) {}
+		goto start; }
+		
+	if (UpOrDown == 'u') {
+		printf("What number do you want to round upwards?: \n");
+		if (scanf(" %lf", &RoundUpNum) != 1) {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
-			goto start; 
-		}
+			goto start; }
+		else {
+			printf("The result is: %f", ceil(RoundUpNum)); } 
+		} 
+				
+	if (UpOrDown == 'd') {
+		printf("What number do you want to round downwards?: \n");
+		if (scanf(" %lf", &RoundDownNum) != 1) {
+			printf("Invalid input\n"); 
+			while ((clear = getchar()) != '\n' && clear != EOF) {}
+			goto start; }
+		else {
+			printf("The result is %f", floor(RoundDownNum)); }
+			} 
+		} // if line:54 closing
+	
+else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
+	printf("Enter the first number:\n");
+	if (scanf("%lf", &result1) != 1) {
+		printf("Invalid input\n"); 
+		while ((clear = getchar()) != '\n' && clear != EOF) {}
+		goto start; }
 	printf("Enter the second number:\n");
 	if (scanf("%lf", &result2) != 1) { // scanf should return any other number than 1 if the user didn't input the correct type, We can use this to know if the user entered the requested type or not 
 			printf("Invalid input\n"); 
@@ -75,11 +103,12 @@ int main () {
 				finalResult = result1 / result2; // Divide the first number (result1) and the second number (result2) together and put them into (finalResult)
 				CheckOPCorrect = 1; // It will temporarily store the number (1) into the variable (CheckOPCorrect) 
 			}
-	
 		default: 
 			printf("Invalid operation\n");  // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
 			CheckOPCorrect = 0;
-			goto start;	}
+			goto start;	
+			break; }
+			
 		if (CheckOPCorrect == 1) { // If the CheckOPCorrect has it's value stored as (1) (See line: 72)
 			printf("Result is: %.2lf\n", finalResult);   // Print the result that has been stored from at least one of the (case) code block
 			goto start; // Go to the (start:) in line (18) and do all the code after line (18)
