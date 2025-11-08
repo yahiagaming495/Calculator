@@ -12,4 +12,6 @@ Features
 - Use this if you hate your life
 
 Ideas: 
-I will probably add something for rounding numbers, using the simeple ```floor()``` and ```ceil()```
+I will probably add something for rounding numbers, using the simple ```floor()``` and ```ceil()``` functions
+
+Thank you for reading, I will make some actual projects soon
