@@ -12,6 +12,7 @@ int clear;
 int CheckOPCorrect;
 
 int main () {
+	printf("NOTE: If you divide any number by zero (0), The program will output 'inf' (Infinity)\n");
 	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
 	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
 	start:
@@ -71,7 +72,7 @@ int main () {
 				goto start; // Go from the beggining, Or more specifically, From line (18)
 			}
 			else {  // If the user isn't trying to divide by zero
-				finalResult = result1 * result2; // Divide the first number (result1) and the second number (result2) together and put them into (finalResult)
+				finalResult = result1 / result2; // Divide the first number (result1) and the second number (result2) together and put them into (finalResult)
 				CheckOPCorrect = 1; // It will temporarily store the number (1) into the variable (CheckOPCorrect) 
 			}
 	
