@@ -13,7 +13,7 @@ Features
 
 **How to compile this program?**
 --------
-**NOTE: There is already a compiled version in this repository, but if you want to compile it yourself for whatever reason, There is how)**
+**NOTE: There is already a compiled version in this repository, but if you want to compile it yourself for whatever reason, This is how)**
 
 First install gcc 
 
