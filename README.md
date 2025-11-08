@@ -37,6 +37,7 @@ Run: ```gcc --version```
 You will first be greeted with some NOTES: Read them, Those include
 
 ```If you divide a number by zero (0), The program will output "Inf" (infinity)```
+
 ```Write 's' for calculating the square root, 'p' for power```
 
 **Usage examples**
