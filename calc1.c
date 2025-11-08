@@ -36,10 +36,10 @@ int main () {
 	printf("Enter the second number:\n");
 	scanf("%lf", &result2);
 	switch (op) {
-		case '+': finalResult = result1 + result2; CheckOPCorrect = 1; break;
-		case '-': finalResult = result1 - result2; CheckOPCorrect = 1; break;
-		case '*': finalResult = result1 * result2; CheckOPCorrect = 1; break;
-		case '/': finalResult = result1 / result2; CheckOPCorrect = 1; break;		
+		case '+': finalResult = result1 + result2; break;
+		case '-': finalResult = result1 - result2; break;
+		case '*': finalResult = result1 * result2; break;
+		case '/': finalResult = result1 / result2; break;		
 	
 		default: 
 			printf("Invalid operation"); // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
