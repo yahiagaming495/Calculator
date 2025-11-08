@@ -21,9 +21,9 @@ int main () {
 	if (op == 's') {
 		double sqrtOp;
 		printf("Enter the number you want the square root of: \n");
-		if (scanf("%lf", &sqrtOp) != 1) {
+		if (scanf("%lf", &sqrtOp) != 1) { // Scanf will return 1 if the input was correct, if it wasn't correct it will output ANY other number than 1
 			printf("Invalid input"); 
-			while ((clear = getchar()) != '\n' && clear != EOF) {}
+			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer if the input was invalid
 			return 1; }
 			
 		else {
@@ -70,5 +70,6 @@ int main () {
 		}
 
 }
+
 
 
