@@ -27,6 +27,9 @@ int main () {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer if the input was invalid
 			goto start; }
+		if (sqrtOp < 0) {
+			printf("Square root cannot be a negative number");
+			goto start; }
 			
 		else {
 		printf("The result is: %f\n", sqrt(sqrtOp)); }
@@ -43,8 +46,7 @@ int main () {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
 			goto start; }
-	result = pow(base, exponent);
-	printf("%lf raised to the power of %lf is %lf\n", base, exponent, result);
+	printf("%lf", pow(base, exponent));
 	goto start;
   }	else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
 	printf("Enter the first number:\n");
@@ -61,7 +63,7 @@ int main () {
 		case '+': finalResult = result1 + result2; CheckOPCorrect = 1; break;
 		case '-': finalResult = result1 - result2; CheckOPCorrect = 1; break;
 		case '*': finalResult = result1 * result2; CheckOPCorrect = 1; break;
-		case '/': finalResult = result1 / result2; CheckOPCorrect = 1; break;		
+		case '/': finalResult = result1 / result2; CheckOPCorrect = 1; break; 	
 	
 		default: 
 			printf("Invalid operation\n");  // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
