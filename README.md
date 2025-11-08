@@ -38,16 +38,17 @@ For termux and CLANG run: ```clang --version```
 
 **How to use this program?**
 -----
-You will first be greeted with some NOTES: Read them, Those include
-
-```If you divide a number by zero (0), The program will output "Inf" (infinity)```
-
-```Write 's' for calculating the square root, 'p' for power```
+You will first be greeted with some NOTES: Read them
+Type the letter "p" when asked for the type of calculation for calculating the power of something
+The letter "s" is for square root, While the letter "r" is for rounding (either upwards or downwards)
+```*``` Sign is for multiplication
+```/``` is for division
 
 **Usage examples**
+-----
 1. Let's say you're studying, You came across a math problem. So you open your terminal and just type ```./calc1``` and you can easily calculate the problem
 
-2. You are at the store, You aren't sure if you're correct about the calculation at home, But you have compiled the program on Termux (a sand-boxed linux-ish enviroment on your phone) So now you can use the program on your phone (un-tested, if there is any problems open a bug in this repo)
+2. You are at the store, You aren't sure if you're correct about the calculation, But you have compiled the program on Termux (a sand-boxed linux-ish enviroment on your phone) So now you can use the program on your phone (un-tested, if there is any problems open a bug in this repo)
 
 
 
