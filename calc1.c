@@ -15,6 +15,7 @@ double RoundUpNum;
 double RoundDownNum;
 
 int main () {
+	printf("Calculator Copyright (C) 2026 Yehia loay\n Licensed under the GNU General public license 3.0\n This program comes with ABSOLUTLY NO WARRANTY\n https://www.gnu.org/licenses/gpl-3.0.txt\n\n");
 	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
 	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
 	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to exit the program\n");
