@@ -14,7 +14,7 @@ int CheckOPCorrect;
 
 int main () {
 	printf("NOTE: If you divide any number by zero (0), The program will output 'inf' (Infinity)\n");
-	printf("NOTE: Please write 's' when requested to enter the type of caluclation for finding the square root of a number\n");
+	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
 	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
 	start:
 	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to be exit the program\n");
