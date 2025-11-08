@@ -27,7 +27,7 @@ int main () {
 			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer if the input was invalid
 			goto start; }
 		if (sqrtOp < 0) {
-			printf("Square root cannot be a negative number");
+			printf("Square root cannot be a negative number\n");
 			goto start; }
 			
 		else {
@@ -45,7 +45,7 @@ int main () {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
 			goto start; }
-	printf("%lf", pow(base, exponent));
+	printf("The result is: %lf\n", pow(base, exponent));
 	goto start;
   }	else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
 	printf("Enter the first number:\n");
@@ -74,6 +74,3 @@ int main () {
 		}
 
 }
-
-
-
