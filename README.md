@@ -8,6 +8,7 @@ Features
 - Power calculation
 - Basic math (+, -, *, /)
 - Calculating the square root of numbers
+- Rounding (upwards and downwards)
 - Garbage code, not organized at all
 - Use this if you hate your life
 
