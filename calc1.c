@@ -8,7 +8,6 @@ double finalResult;
 char op;
 double base;
 double exponent;
-double result;
 int clear;
 int CheckOPCorrect;
 
