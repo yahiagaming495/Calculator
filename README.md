@@ -18,9 +18,13 @@ Features
 First install gcc 
 
 **Arch** ```sudo pacman -S gcc```
+
 **Debian** ```sudo apt install build-essential``` If it doesn't work try ```sudo apt update``` first
+
 **Fedora** ```sudo dnf install gcc```
-**Termux (untested) ```pkg install clang``` then ```pkg install gcc-cctools```
+
+**Termux (untested)** ```pkg install clang``` then ```pkg install gcc-cctools```
+
 Then download the C code from this repository, And run ```gcc -o math1 math1.c -lm```
 After that run ```./math1```
 
