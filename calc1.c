@@ -6,7 +6,6 @@ double result1;
 double result2;
 double finalResult;
 char op;
-int CheckOPCorrect;
 double base;
 double exponent;
 double result;
