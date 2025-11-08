@@ -26,8 +26,9 @@ First install gcc
 **Termux (untested)** ```pkg install clang``` 
 
 Then download the C code from this repository, And run ```gcc -o math1 math1.c -lm```
-**NOTE: Please run ```clang math1.c -o math1 -lm```**
 After that run ```./math1```
+
+**NOTE: For termux please run: ```clang math1.c -o math1 -lm``` and then ```./math1``` normally** 
 
 **To verify the installation of gcc**
 ------
