@@ -98,7 +98,7 @@ else { // It will continue to perform a basic-math-calculation (+, -, *, /)
 		case '/': // If the user is trying to do division 
 			if (result2 == 0) { // And if the user is dividing the second number (result2) by 0
 				printf("Cannot divide by 0\n"); // Clarify that you can't do that buddy   
-				goto start; // Go from the beggining, Or more specifically, From line (18)
+				goto start; // Go from the beggining, Or more specifically, From line (22)
 			}
 			else {  // If the user isn't trying to divide by zero
 				finalResult = result1 / result2; // Divide the first number (result1) and the second number (result2) together and put them into (finalResult)
