@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
 
-double result1;
-double result2;
+
 double finalResult;
 char op;
 double base;
@@ -13,29 +13,31 @@ int CheckOPCorrect;
 char UpOrDown;
 double RoundUpNum;
 double RoundDownNum;
+// ./calc1 [OPERATION] [FIRST NUMBER] [SECOND NUMBER]
 
-int main () {
-	printf("Calculator Copyright (C) 2026 Yehia loay\n Licensed under the GNU General public license 3.0\n This program comes with ABSOLUTLY NO WARRANTY\n https://www.gnu.org/licenses/gpl-3.0.txt\n\n");
+int main (int argc, char *argv[]) {
+	char op = argv[1][0];
+	double result1 = atof(argv[2]);
+	double result2 = atof(argv[3]);
+	printf("Calculator Copyright (C) 2026 Yehia loay\nLicensed under the GNU General public license 3.0\nThis program comes with ABSOLUTLY NO WARRANTY\n https://www.gnu.org/licenses/gpl-3.0.txt\n\n");
 	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
 	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
 	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to exit the program\n");
-	start:
-	printf("What type of calculation would you like to perform?: \n");
-	scanf(" %c", &op);
 	if (op == 's') { // 's' means that the user wants the square-root, We used single-quotes because it's a single-letter plus, We are storing it in a char (single-letter-variable, which is: op)
 		double sqrtOp;
 		printf("Enter the number you want the square root of: \n");
 		if (scanf("%lf", &sqrtOp) != 1) { // Scanf will return 1 if the input was correct, if it wasn't correct it will output ANY other number than 1
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer if the input was invalid
-			goto start; }
+		}
 		if (sqrtOp < 0) { // Check if the square root (sqrt, Stored in: sqrtOp) is a negative number, Or more specifically, Check if 0 is bigger than the inputed square-root
 			printf("Square root cannot be a negative number\n");
-			goto start; }
+ 
+		}
 			
 		else {
 			printf("The result is: %f\n", sqrt(sqrtOp)); }
-			goto start;
+
 		}
 
 	if (op == 'p') { // If user typed "p" in the opreation (Stored in: op), That means he requested to find the power of something 
@@ -43,28 +45,33 @@ int main () {
 	if (scanf("%lf", &base) != 1) { // Any "&" in a scanf means store the user input into the variable after the "&"
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
-			goto start; }
+
+		}
 	printf("Please type the exponent of the number: \n");
 	if (scanf("%lf", &exponent) != 1) {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
-			goto start; }
+
+		}
 	printf("The result is: %lf\n", pow(base, exponent));
-	goto start; }
+
+	}
 
 else if (op == 'r') {
 	printf("Do you want to round the number upwards or downwards?: ('u' for upwards, 'd' for downwards)\n");
 	if (scanf(" %c", &UpOrDown) != 1) {
 		printf("Invalid input\n"); 
 		while ((clear = getchar()) != '\n' && clear != EOF) {}
-		goto start; }
+ 
+	}
 		
 	if (UpOrDown == 'u') {
 		printf("What number do you want to round upwards?: \n");
 		if (scanf(" %lf", &RoundUpNum) != 1) {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
-			goto start; }
+ 
+		}
 		else {
 			printf("The result is: %f", ceil(RoundUpNum)); } 
 		} 
@@ -74,23 +81,15 @@ else if (op == 'r') {
 		if (scanf(" %lf", &RoundDownNum) != 1) {
 			printf("Invalid input\n"); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
-			goto start; }
+
+		}
 		else {
 			printf("The result is %f", floor(RoundDownNum)); }
 			} 
 		} // if line:54 closing
 	
 else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
-	printf("Enter the first number:\n");
-	if (scanf("%lf", &result1) != 1) {
-		printf("Invalid input\n"); 
-		while ((clear = getchar()) != '\n' && clear != EOF) {}
-		goto start; }
-	printf("Enter the second number:\n");
-	if (scanf("%lf", &result2) != 1) { // scanf should return any other number than 1 if the user didn't input the correct type, We can use this to know if the user entered the requested type or not 
-			printf("Invalid input\n"); 
-			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer (This may be hard to understand a bit tho)
-			goto start; } // Go from the beggining (line: 18)
+
 	switch (op) { // One of these conditions must be met
 		case '+': finalResult = result1 + result2; CheckOPCorrect = 1; break; // If the user entered plus when asked to enter the operation (Line: 20), Then add the first number (result1) and the second number (result2) together and perform a simple-addition-calculation
 		case '-': finalResult = result1 - result2; CheckOPCorrect = 1; break; // If the user entered (-), Subtract result1 from result2 and temporarily store the final result into (finalResult)
@@ -98,21 +97,21 @@ else { // It will continue to perform a basic-math-calculation (+, -, *, /)
 		case '/': // If the user is trying to do division 
 			if (result2 == 0) { // And if the user is dividing the second number (result2) by 0
 				printf("Cannot divide by 0\n"); // Clarify that you can't do that buddy   
-				goto start; // Go from the beggining, Or more specifically, From line (22)
+
 			}
 			else {  // If the user isn't trying to divide by zero
 				finalResult = result1 / result2; // Divide the first number (result1) and the second number (result2) together and put them into (finalResult)
-				CheckOPCorrect = 1; // It will temporarily store the number (1) into the variable (CheckOPCorrect) 
+				CheckOPCorrect = 1;  // It will temporarily store the number (1) into the variable (CheckOPCorrect) 
+				break;
 			}
 		default: 
 			printf("Invalid operation\n");  // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
-			CheckOPCorrect = 0;
-			goto start;	
+
 			break; }
 			
 		if (CheckOPCorrect == 1) { // If the CheckOPCorrect has it's value stored as (1) (See line: 72)
 			printf("Result is: %.2lf\n", finalResult);   // Print the result that has been stored from at least one of the (case) code block
-			goto start; // Go to the (start:) in line (18) and do all the code after line (18)
+	//		goto start; // Go to the (start:) in line (18) and do all the code after line (18)
 		} // CheckOPCorrect if closing bracket
 
 } // Else closing bracket (Line: 50)
