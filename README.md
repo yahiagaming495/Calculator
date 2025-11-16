@@ -57,8 +57,4 @@ The letter "s" is for square root, While the letter "r" is for rounding (either 
 
 
 
-
-Ideas: 
-I will probably add something for rounding numbers, using the simple ```floor()``` and ```ceil()``` functions
-
 Thank you for reading, I will make some actual projects soon
