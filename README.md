@@ -44,6 +44,7 @@ Type the letter "p" when asked for the type of calculation for calculating the p
 The letter "s" is for square root, While the letter "r" is for rounding (either upwards or downwards)
 ```*``` Sign is for multiplication
 ```/``` is for division
+**How to use (format):** ./calc1 [OPERATION (+, -, /, r, p, s, *] [FIRST NUMBER] [SECOND NUMBER] 
 
 **Usage examples**
 -----
