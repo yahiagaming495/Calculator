@@ -13,90 +13,97 @@ int CheckOPCorrect;
 char UpOrDown;
 double RoundUpNum;
 double RoundDownNum;
+int x;
+
+#define LIGHT_GREEN "\x1b[32m"
+#define RESET "\x1b[0m"
+#define BOLD_GREEN "\033[1;32m"
+#define COLOR_BLUE "\033[34m"
+#define COLOR_RED "\033[31m"
+#define COLOR_YELLOW  "\x1b[33m"
+
 // ./calc1 [OPERATION] [FIRST NUMBER] [SECOND NUMBER]
+
 
 int main (int argc, char *argv[]) {
 	char op = argv[1][0];
-	double result1 = atof(argv[2]);
-	double result2 = atof(argv[3]);
-	printf("Calculator Copyright (C) 2026 Yehia loay\nLicensed under the GNU General public license 3.0\nThis program comes with ABSOLUTLY NO WARRANTY\n https://www.gnu.org/licenses/gpl-3.0.txt\n\n");
-	printf("NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n");
-	printf("NOTE: 'p' is for calculating the power\n"); // We will do a better method later but i am lazy... Maybe add a numbered-menu of possible calculation and make the user input the number, Uhh, not now 
-	printf("NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to exit the program\n");
-	if (op == 's') { // 's' means that the user wants the square-root, We used single-quotes because it's a single-letter plus, We are storing it in a char (single-letter-variable, which is: op)
-		double sqrtOp;
-		printf("Enter the number you want the square root of: \n");
-		if (scanf("%lf", &sqrtOp) != 1) { // Scanf will return 1 if the input was correct, if it wasn't correct it will output ANY other number than 1
-			printf("Invalid input\n"); 
-			while ((clear = getchar()) != '\n' && clear != EOF) {} // Clear the input buffer if the input was invalid
-		}
-		if (sqrtOp < 0) { // Check if the square root (sqrt, Stored in: sqrtOp) is a negative number, Or more specifically, Check if 0 is bigger than the inputed square-root
-			printf("Square root cannot be a negative number\n");
- 
-		}
-			
-		else {
-			printf("The result is: %f\n", sqrt(sqrtOp)); }
 
-		}
-
-	if (op == 'p') { // If user typed "p" in the opreation (Stored in: op), That means he requested to find the power of something 
-	printf("Please type the base number for this power calculation?:\n ");
-	if (scanf("%lf", &base) != 1) { // Any "&" in a scanf means store the user input into the variable after the "&"
-			printf("Invalid input\n"); 
-			while ((clear = getchar()) != '\n' && clear != EOF) {}
-
-		}
-	printf("Please type the exponent of the number: \n");
-	if (scanf("%lf", &exponent) != 1) {
-			printf("Invalid input\n"); 
-			while ((clear = getchar()) != '\n' && clear != EOF) {}
-
-		}
-	printf("The result is: %lf\n", pow(base, exponent));
-
+	if (op == 's' || op == 'p' || op == 'r') {
+		x = 1;
 	}
+	if (argc != 4 && x != 1) {
+		printf(COLOR_RED "FATAL: You need to input three arguments" RESET);
+		return 1;
+		} 
+
+	printf(COLOR_YELLOW "NOTE: Please write 's' when requested to enter the type of calculation for finding the square root of a number\n" RESET);
+	printf(COLOR_YELLOW "NOTE: 'p' is for calculating the power\n" RESET);
+	printf(COLOR_YELLOW "NOTE: 'r' is for rounding (Upwards and downwards, Just type the operation as 'r' and keep the numbers blank\n" RESET);
+	printf(COLOR_YELLOW "NOTE: Press 'ctrl+c' on your keyboard or termux keyboard to exit the program\n" RESET);
+	if (op == 's') { // 's' means that the user wants the square-root, We used single-quotes because it's a single-letter plus, We are storing it in a char (single-letter-variable, which is: op)
+		double sqrtOp = atof(argv[2]); // Convert string to float
+		
+		if (sqrtOp < 0) { // Check if the square root (sqrt, Stored in: sqrtOp) is a negative number, Or more specifically, Check if 0 is bigger than the inputed square-root
+			printf(COLOR_RED "FATAL: Square root cannot be a negative number\n" RESET); }
+			 
+
+		else {
+			printf(LIGHT_GREEN "The result is: " RESET BOLD_GREEN "%f" RESET "\n", sqrt(sqrtOp) ); 
+				}
+} // Line 42 closing
+
+	else if (op == 'p') { // If user typed "p" in the opreation (Stored in: op), That means he requested to find the power of something 
+	double base = atof(argv[2]);
+	double exponent = atof(argv[3]);
+	if (exponent == 0 || base == 0) {
+		printf(COLOR_RED "FATAL: Cannot do 0 power 0 in power calculation" RESET);
+		return 1;
+	}
+	printf(LIGHT_GREEN "The result is: " RESET BOLD_GREEN "%f\n", pow(base, exponent)); }
+	
+
 
 else if (op == 'r') {
 	printf("Do you want to round the number upwards or downwards?: ('u' for upwards, 'd' for downwards)\n");
 	if (scanf(" %c", &UpOrDown) != 1) {
-		printf("Invalid input\n"); 
+		printf(COLOR_RED "FATAL: Invalid input\n" RESET); 
 		while ((clear = getchar()) != '\n' && clear != EOF) {}
  
 	}
-		
+	
 	if (UpOrDown == 'u') {
 		printf("What number do you want to round upwards?: \n");
 		if (scanf(" %lf", &RoundUpNum) != 1) {
-			printf("Invalid input\n"); 
+			printf(COLOR_RED "FATAL: Invalid input\n" RESET); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
  
 		}
 		else {
-			printf("The result is: %f", ceil(RoundUpNum)); } 
+			printf(LIGHT_GREEN "The result is: " RESET BOLD_GREEN "%f" RESET, ceil(RoundUpNum) ); } 
 		} 
 				
 	if (UpOrDown == 'd') {
 		printf("What number do you want to round downwards?: \n");
 		if (scanf(" %lf", &RoundDownNum) != 1) {
-			printf("Invalid input\n"); 
+			printf(COLOR_RED "FATAL: Invalid input\n" RESET); 
 			while ((clear = getchar()) != '\n' && clear != EOF) {}
 
 		}
 		else {
-			printf("The result is %f", floor(RoundDownNum)); }
+			printf(LIGHT_GREEN "The result is: " RESET BOLD_GREEN "%f" RESET "\n", floor(RoundDownNum));
 			} 
 		} // if line:54 closing
-	
+		}
 else { // It will continue to perform a basic-math-calculation (+, -, *, /) 
-
+	double result1 = atof(argv[2]);
+	double result2 = atof(argv[3]);
 	switch (op) { // One of these conditions must be met
 		case '+': finalResult = result1 + result2; CheckOPCorrect = 1; break; // If the user entered plus when asked to enter the operation (Line: 20), Then add the first number (result1) and the second number (result2) together and perform a simple-addition-calculation
 		case '-': finalResult = result1 - result2; CheckOPCorrect = 1; break; // If the user entered (-), Subtract result1 from result2 and temporarily store the final result into (finalResult)
-		case '*': finalResult = result1 * result2; CheckOPCorrect = 1; break; // Same goes on and on
+		case 'x': finalResult = result1 * result2; CheckOPCorrect = 1; break; // Same goes on and on
 		case '/': // If the user is trying to do division 
 			if (result2 == 0) { // And if the user is dividing the second number (result2) by 0
-				printf("Cannot divide by 0\n"); // Clarify that you can't do that buddy   
+				printf(COLOR_RED "FATAL: Cannot divide by 0\n" RESET); // Clarify that you can't do that buddy   
 
 			}
 			else {  // If the user isn't trying to divide by zero
@@ -105,15 +112,15 @@ else { // It will continue to perform a basic-math-calculation (+, -, *, /)
 				break;
 			}
 		default: 
-			printf("Invalid operation\n");  // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
-
+			printf(COLOR_RED "FATAL: Invalid operation\n" RESET);  // Check if the operation is not correct, Or maybe the user just entered something that isn't added yet 
 			break; }
 			
 		if (CheckOPCorrect == 1) { // If the CheckOPCorrect has it's value stored as (1) (See line: 72)
-			printf("Result is: %.2lf\n", finalResult);   // Print the result that has been stored from at least one of the (case) code block
-	//		goto start; // Go to the (start:) in line (18) and do all the code after line (18)
+			printf(LIGHT_GREEN "Result is: " BOLD_GREEN  "%.2lf" RESET "\n", finalResult);
+			   // Print the result that has been stored from at least one of the (case) code block
 		} // CheckOPCorrect if closing bracket
 
 } // Else closing bracket (Line: 50)
 
 } // main closing bracket (Line: 14)
+
